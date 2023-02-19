@@ -16,6 +16,7 @@ class FunctionsTestCase(unittest.TestCase):
     def test_validate_year(self):
         self.assertEqual(validate_year(2020), True, 'should be true')
         self.assertEqual(validate_year(2010), True, 'should be true')
+        self.assertEqual(validate_year(2005), True, 'should be true')
         with self.assertRaises(InvalidYear):
             validate_year(2024)
 
