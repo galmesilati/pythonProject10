@@ -107,8 +107,6 @@ def validate_address_by_city(city: str):
     else:
         raise InvalidCustomerAddress(city)
 
-
-
 def get_last_day_to_retuned(type_loan: int, loan_date):
     if validate_date(loan_date) is True and validate_loan_type(type_loan) is True:
         loan_date = convert_to_date(loan_date)
@@ -121,29 +119,3 @@ def get_last_day_to_retuned(type_loan: int, loan_date):
             days = 2
         result = loan_date + timedelta(days=days)
         return result
-
-
-
-if __name__ == '__main__':
-    print(validate_address_by_city('Herzeliya'))
-#     try:
-#         validate_customer_id("hchc")
-#     except CustomerExceptions as e:
-#         print(f"Error: {e}")
-
-    # print(validate_customer_id('023963l66'))
-#     print(validate_year(1989))
-#     print(1)
-#     # print(get_id_from_file("book"))
-#     print(validate_date("12/04/2022"))
-#     print(2)
-#     print(validate_birth_date("28/03/2000"))
-#     print(3)
-#     email = "galm@gmail.co.il"
-#     print(validate_email(email))
-#     print(get_last_day_to_retuned(1,'04/02/2023'))
-#     print(5)
-#     print(validate_loan_type(2))
-#       print(validate_name('Gal Mesilati'))
-
-
