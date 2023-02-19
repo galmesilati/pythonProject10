@@ -8,7 +8,6 @@ from ..Library.library import library
 from ..exceptions.exceptions import TheBookSearchNotExisted, InvalidBookName, InvalidAuthorName, InvalidBookId, NoEnteredBookId
 
 
-
 def add_new_book():
     book_name = input("enter the name of book: ")
     author_name = input("Please enter the author's name: ")

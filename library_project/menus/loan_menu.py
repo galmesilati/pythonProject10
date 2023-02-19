@@ -49,7 +49,6 @@ def add_new_loan():
        raise BookUnavailable(book_id)
 
 
-
 def return_a_book():
     customer_id = input('Please enter your national id: ')
     if customer_id == '':

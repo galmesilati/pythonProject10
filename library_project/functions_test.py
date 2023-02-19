@@ -36,7 +36,6 @@ class FunctionsTestCase(unittest.TestCase):
         with self.assertRaises(InvalidDate):
             validate_date('12.12.2020')
 
-
     def test_validate_email(self):
         self.assertEqual(validate_email('gms@gmail.com'), True, 'should be true')
         self.assertEqual(validate_email('gms@outlook.co.il'), True, 'should be true')
@@ -49,11 +48,6 @@ class FunctionsTestCase(unittest.TestCase):
         self.assertEqual(validate_name('Chen Mesilati'), True, 'should be true')
         with self.assertRaises(InvalidCustomerName):
             validate_name('gal mesilati')
-
-
-
-
-
 
 if __name__ == '__main__':
     unittest.main()

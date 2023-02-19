@@ -15,6 +15,7 @@ def customer_to_customer_dict(customer) -> dict:
         "suspended_until" : customer.get_suspended_until()
     }
 
+
 #books
 def book_to_book_dict(book) -> dict:
     return {
@@ -24,6 +25,7 @@ def book_to_book_dict(book) -> dict:
         "book_year_published" : book.get_book_year_published(),
         "book_type_loan" : book.get_book_type_loan()
     }
+
 
 #loans
 def loan_to_loan_dict(loan) -> dict:
@@ -69,6 +71,7 @@ def fetch_all(display_type):
     with open(file_path, "r") as f:
         content = json.load(f)
         return content
+
 
 def write_all(write_type, object_to_write):
     file_path = ""
