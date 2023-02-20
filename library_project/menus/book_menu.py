@@ -7,7 +7,7 @@ from .loan_menu import is_book_available
 from ..Library.library import library
 from ..exceptions.exceptions import TheBookSearchNotExisted, InvalidBookName, InvalidAuthorName, InvalidBookId, NoEnteredBookId
 
-
+# This function is a creation of book and also write to json files.
 def add_new_book():
     book_name = input("enter the name of book: ")
     author_name = input("Please enter the author's name: ")
@@ -24,6 +24,7 @@ def display_all_books():
     pprint(fetch_all('books'))
 
 
+# This function searches for a book by book name and returns the book.
 def find_books_by_name():
     book_name = input("Enter the name of the book: ")
     if book_name == "":
@@ -36,6 +37,7 @@ def find_books_by_name():
     raise TheBookSearchNotExisted(book_name)
 
 
+# This function searches for a book by author name and returns the book
 def find_books_by_author():
     author_name = input("Enter the name of the author of the book: ")
     if author_name == "":
@@ -48,6 +50,7 @@ def find_books_by_author():
     raise TheBookSearchNotExisted(author_name)
 
 
+# This function deletes a book from the system only if the book is available and not loaned.
 def remove_book_from_the_library():
     book_id = input('Please enter book id: ')
     if book_id == '':

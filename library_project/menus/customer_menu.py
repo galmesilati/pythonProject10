@@ -6,6 +6,7 @@ from ..exceptions.exceptions import CustomerNotExist, NoEnteredCustomerId, Inval
 from ..utils.functions import validate_name
 
 
+# This function is a creation of customer and also write to json files
 def add_new_customer():
     customer_id = input("Please enter the national id: ")
     full_name = input("Please enter the customer's full name with a capital letter in the first and last name: ")
@@ -41,6 +42,7 @@ def remove_customer_from_the_library():
     raise CustomerNotExist(customer_id)
 
 
+#  This function searches for a customer by customer name and returns the customer.
 def find_customer_by_name():
     customer_full_name = input("Enter the name of the customer: ")
     if validate_name(customer_full_name) is True:

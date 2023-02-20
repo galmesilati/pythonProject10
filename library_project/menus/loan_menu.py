@@ -8,6 +8,10 @@ from library_project.utils.functions import get_last_day_to_retuned,validate_ret
 from ..exceptions.exceptions import BookDoesntExist, BookUnavailable, InvalidBookId, NoEnteredCustomerId, NoEnteredBookId, CustomerNotExist
 
 
+# This function checks if a book is available,
+# it goes check all the books in the library and
+# if it found a book whose return date is None -
+# it means that book is currently loaned and not in the library
 def is_book_available(book_id):
     available = True
     for loan in library.get_loans():
@@ -15,6 +19,7 @@ def is_book_available(book_id):
         if book_id == int(loan.get_book_id()) and loan.get_return_date() is None:
             available = False
     return available
+
 
 
 def add_new_loan():
@@ -49,6 +54,10 @@ def add_new_loan():
        raise BookUnavailable(book_id)
 
 
+# This function is to return a book to the library,
+# but if the customer is late for the date allowed to return the book,
+# the customer will be suspended for up to 14 days.
+# and also writing to a json file
 def return_a_book():
     customer_id = input('Please enter your national id: ')
     if customer_id == '':
@@ -99,6 +108,7 @@ def display_all_loans():
     pprint(fetch_all('loans'))
 
 
+# This function shows all the loaned books the customer has loaned in the past
 def display_past_loans_for_specifi_customer():
     customer_loans = []
     customer_id = input("Please enter customer national id:")
@@ -111,6 +121,7 @@ def display_past_loans_for_specifi_customer():
     pprint(customer_loans)
 
 
+# This function displays all the loaned books that the customer is currently borrowing
 def display_current_loans_for_specifi_customer():
     customer_loans = []
     customer_id = input("Please enter customer national id:")
@@ -121,6 +132,7 @@ def display_current_loans_for_specifi_customer():
     pprint(customer_loans)
 
 
+# This function displays all late loans that have passed the allowable date
 def display_all_the_late_loans():
     print("All the late loan: ")
     today = datetime.date.today()
