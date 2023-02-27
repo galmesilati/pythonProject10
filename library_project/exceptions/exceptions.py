@@ -136,3 +136,7 @@ class NoEnteredCustomerId(CustomersErrors):
         massage = "you did not insert a customer id"
         super().__init__(customer_id, massage)
 
+class CustomerHaveLoan(LoansErrors):
+    def __init__(self, customer_id):
+        massage = "Cannot delete customer, customer has currently loans. "
+        super().__init__(customer_id, massage)

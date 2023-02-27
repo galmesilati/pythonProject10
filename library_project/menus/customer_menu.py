@@ -1,9 +1,9 @@
 from library_project.customers.customer import Customer
 from library_project.file_hendler import add_object_to_file, fetch_all, write_all
-from ..Library.library import library
+from library_project.Library.library import library
 from pprint import pprint
-from ..exceptions.exceptions import CustomerNotExist, NoEnteredCustomerId, InvalidCustomerID
-from ..utils.functions import validate_name
+from library_project.exceptions.exceptions import CustomerNotExist, NoEnteredCustomerId, InvalidCustomerID, CustomerHaveLoan
+from library_project.utils.functions import validate_name
 
 
 # This function is a creation of customer and also write to json files
@@ -32,6 +32,10 @@ def remove_customer_from_the_library():
         customer_id = int(customer_id)
     except:
         raise InvalidCustomerID(customer_id)
+    loans = library.get_loans()
+    for loan in loans:
+        if loan['customer_id'] == str(customer_id) and loan['return_date'] is None:
+            raise CustomerHaveLoan(loan)
     customers = library.get_customers()
     for customer in customers:
         if int(customer['id']) == customer_id:
